@@ -18,8 +18,12 @@ class GildedRose(object):
                     delta_quality += 1
                 if item.sell_in < 6:
                     delta_quality += 1
-            else:
-                if item.sell_in < 1:
+            if item.sell_in < 1:
+                if "aged brie" in item.name.lower():
+                    delta_quality += 1
+                elif "backstage passes" in item.name.lower():
+                    delta_quality = -item.quality
+                else:
                     delta_quality -= 1
 
             if "conjured" in item.name.lower():

@@ -73,12 +73,14 @@ class GildedRoseTest(unittest.TestCase):
     def test_backstage_passes(self):
         items = [Item("Backstage passes to a TAFKAL80ETC concert", 12, 36),
                  Item("Backstage passes", 8, 12),
-                 Item("Backstage passes", 3, 18)]
+                 Item("Backstage passes", 3, 18),
+                 Item("Backstage passes", 0, 5)]
         gilded_rose = GildedRose(items)
         gilded_rose.update_quality()
         self.assertEqual(37, gilded_rose.items[0].quality)
         self.assertEqual(14, gilded_rose.items[1].quality)
         self.assertEqual(21, gilded_rose.items[2].quality)
+        self.assertEqual(0, gilded_rose.items[3].quality)
 
     def test_conjured(self):
         items = [Item("Conjured Man", 2, 14)]
