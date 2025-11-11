@@ -2,6 +2,9 @@
 
 class GildedRose(object):
 
+    QUALITY_MAX = 50
+    QUALITY_MIN = 0
+
     def __init__(self, items):
         self.items = items
 
@@ -51,13 +54,10 @@ class GildedRose(object):
 
     @staticmethod
     def _impose_quality_bounds(item):
-        quality_max = 50
-        quality_min = 0
-
-        if item.quality > quality_max:
-            item.quality = quality_max
-        elif item.quality < quality_min:
-            item.quality = quality_min
+        if item.quality > GildedRose.QUALITY_MAX:
+            item.quality = GildedRose.QUALITY_MAX
+        elif item.quality < GildedRose.QUALITY_MIN:
+            item.quality = GildedRose.QUALITY_MIN
 
     @staticmethod
     def _update_sell_in(item):
